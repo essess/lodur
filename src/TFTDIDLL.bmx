@@ -160,7 +160,6 @@ Type TFTDIDLL
 		Return s
 	End Function
 	
-	?Debug
 	Function _isProcAddresses:Int( me:TFTDIDLL )
 		Return me.FT_GetLibraryVersion Or me.FT_CreateDeviceInfoList Or ..
 			 me.FT_GetDeviceInfoDetail Or me.FT_Open Or me.FT_Close Or ..
@@ -169,9 +168,7 @@ Type TFTDIDLL
 			 me.FT_SetBitMode Or me.FT_SetLatencyTimer Or me.FT_ResetDevice	Or ..
 			 me.FT_SetTimeouts
 	End Function
-	?
 	
-	?Debug
 	Function _isDllTestedVersion:Int( me:TFTDIDLL )
 		Const DLL_TESTED_VERSION:Int = $00030207
 		Assert me
@@ -179,6 +176,5 @@ Type TFTDIDLL
 		Assert me.FT_GetLibraryVersion(v) = FT_OK
 		Return v >= DLL_TESTED_VERSION
 	End Function
-	?
 	
 End Type
