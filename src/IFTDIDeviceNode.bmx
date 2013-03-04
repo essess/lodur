@@ -32,8 +32,8 @@ SuperStrict
 
 Public
 Type IFTDIDeviceNode Abstract
-	Method SerialNumber:String() Abstract
-	Method Description:String() Abstract
-	Method IsOpen:Int() Abstract
-	Method IsHighSpeed:Int() Abstract
+    Method SerialNumber:String() Abstract
+    Method Description:String() Abstract
+    Method IsOpen:Int() Abstract
+    Method IsHighSpeed:Int() Abstract
 End Type

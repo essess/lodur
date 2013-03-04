@@ -40,15 +40,15 @@ Local str:TStream = WriteFile( "random.s19" )
 Assert str
 
 Local r:TSRecord = TSRecord.Create()
-str.WriteLine( r.ToString() )	' S0 by default
+str.WriteLine( r.ToString() )   ' S0 by default
 
 r.SetRectype( TSRecord.S3 )
 r.SetAddress( $40000000 )
 For Local i:Int = 0 Until 128 ' 2048 = 48k
-	Local cnt:Int = 24
-	r.SetData( gen(cnt) )
-	str.WriteLine( r.ToString() )
-	r.SetAddress( r.Address() + cnt )
+    Local cnt:Int = 24
+    r.SetData( gen(cnt) )
+    str.WriteLine( r.ToString() )
+    r.SetAddress( r.Address() + cnt )
 Next
 
 r.SetRectype( TSRecord.S7 )
@@ -58,9 +58,9 @@ str.WriteLine( r.ToString() )
 str.Close()
 
 Function gen:Byte[]( byte_cnt:Int )
-	Local a:Byte[] = New Byte[byte_cnt]
-	For Local i:Int = 0 Until Len(a)
-		a[i] = Rand( $00, $ff )
-	Next
-	Return a
+    Local a:Byte[] = New Byte[byte_cnt]
+    For Local i:Int = 0 Until Len(a)
+        a[i] = Rand( $00, $ff )
+    Next
+    Return a
 End Function

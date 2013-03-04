@@ -32,69 +32,69 @@ SuperStrict
 
 Type TImage
 
-	Field _bank:TBank = Null
-	Field _base_addr:Int = 0
-	Field _offset:Int = 0
-	
-	'Public
-	Method Get:Byte( addr:Int )
-		SetAddress( addr )
-		Return GetNext()
-	End Method
-	
-	Method GetNext:Byte()
-		Local b:Byte = _bank.PeekByte( _offset )
-		_offset :+ 1
-		_prvClampUpper()
-		Return b
-	End Method
-	
-	Method SetAddress( addr:Int )
-		If addr < _base_addr Then addr = _base_addr
-		_offset = addr - _base_addr
-		_prvClampUpper()
-	End Method
-	
-	Method Address:Int()
-		Return _base_addr + _offset
-	End Method
-	
-	Method Size:Int()
-		Return _bank.Size()
-	End Method
+    Field _bank:TBank = Null
+    Field _base_addr:Int = 0
+    Field _offset:Int = 0
+    
+    'Public
+    Method Get:Byte( addr:Int )
+        SetAddress( addr )
+        Return GetNext()
+    End Method
+    
+    Method GetNext:Byte()
+        Local b:Byte = _bank.PeekByte( _offset )
+        _offset :+ 1
+        _prvClampUpper()
+        Return b
+    End Method
+    
+    Method SetAddress( addr:Int )
+        If addr < _base_addr Then addr = _base_addr
+        _offset = addr - _base_addr
+        _prvClampUpper()
+    End Method
+    
+    Method Address:Int()
+        Return _base_addr + _offset
+    End Method
+    
+    Method Size:Int()
+        Return _bank.Size()
+    End Method
 
-	Method Base:Int()
-		Return _base_addr
-	End Method
-	
-	'Friend/Protected
-	Method Set( addr:Int, b:Byte )
-		SetAddress( addr )
-		SetNext( b )
-	End Method
-	
-	Method SetNext( b:Byte )
-		Assert _offset < _bank.Size()
-		_bank.PokeByte( _offset, b )
-		_offset :+ 1
-		_prvClampUpper()
-	End Method
-	
-	Method _prvClampUpper()
-		Local s:Int = _bank.Size() - 1
-		If _offset > s Then _offset = s
-	End Method
-	
-	Function Create:TImage( size:Int=1024*32, base_addr:Int=0, blank:Byte=$ff )
-		Assert size
-		Local me:TImage = New TImage; Assert me
-		me._bank = TBank.Create( size ); Assert me._bank
-		For Local i:Int = 0 Until size		' < wipe to blank value
-			me._bank.PokeByte( i, blank )
-		Next
-		me._base_addr = base_addr
-		me._offset = 0
-		Return me
-	End Function
+    Method Base:Int()
+        Return _base_addr
+    End Method
+    
+    'Friend/Protected
+    Method Set( addr:Int, b:Byte )
+        SetAddress( addr )
+        SetNext( b )
+    End Method
+    
+    Method SetNext( b:Byte )
+        Assert _offset < _bank.Size()
+        _bank.PokeByte( _offset, b )
+        _offset :+ 1
+        _prvClampUpper()
+    End Method
+    
+    Method _prvClampUpper()
+        Local s:Int = _bank.Size() - 1
+        If _offset > s Then _offset = s
+    End Method
+    
+    Function Create:TImage( size:Int=1024*32, base_addr:Int=0, blank:Byte=$ff )
+        Assert size
+        Local me:TImage = New TImage; Assert me
+        me._bank = TBank.Create( size ); Assert me._bank
+        For Local i:Int = 0 Until size      ' < wipe to blank value
+            me._bank.PokeByte( i, blank )
+        Next
+        me._base_addr = base_addr
+        me._offset = 0
+        Return me
+    End Function
 
 End Type
