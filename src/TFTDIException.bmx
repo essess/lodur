@@ -33,67 +33,67 @@ Import "IFTDIException.bmx"
 
 Public
 Type TFTDIOpenNodeException Extends TFTDIException
-	Function Create:TFTDIOpenNodeException( s:String = "" )
-		Local me:TFTDIOpenNodeException = New TFTDIOpenNodeException
-		_create( me, s )
-		Return me
-	End Function
+    Function Create:TFTDIOpenNodeException( s:String = "" )
+        Local me:TFTDIOpenNodeException = New TFTDIOpenNodeException
+        _create( me, s )
+        Return me
+    End Function
 End Type
 
 Public
 Type TFTDIBadFlagsException Extends TFTDIException
-	Function Create:TFTDIBadFlagsException( s:String = "" )
-		Local me:TFTDIBadFlagsException = New TFTDIBadFlagsException
-		_create( me, s )
-		Return me
-	End Function
+    Function Create:TFTDIBadFlagsException( s:String = "" )
+        Local me:TFTDIBadFlagsException = New TFTDIBadFlagsException
+        _create( me, s )
+        Return me
+    End Function
 End Type
 
 Public
 Type TFTDIBadIndexException Extends TFTDIException
-	Function Create:TFTDIBadIndexException( s:String = "" )
-		Local me:TFTDIBadIndexException = New TFTDIBadIndexException
-		_create( me, s )
-		Return me
-	End Function
+    Function Create:TFTDIBadIndexException( s:String = "" )
+        Local me:TFTDIBadIndexException = New TFTDIBadIndexException
+        _create( me, s )
+        Return me
+    End Function
 End Type
 
 Public
 Type TFTDILibraryCallFailException Extends TFTDIException
-	Function Create:TFTDILibraryCallFailException( s:String = "" )
-		Local me:TFTDILibraryCallFailException = New TFTDILibraryCallFailException
-		_create( me, s )
-		Return me
-	End Function
+    Function Create:TFTDILibraryCallFailException( s:String = "" )
+        Local me:TFTDILibraryCallFailException = New TFTDILibraryCallFailException
+        _create( me, s )
+        Return me
+    End Function
 End Type
 
 Public
 Type TFTDILibraryLoadFailException Extends TFTDIException
-	Function Create:TFTDILibraryLoadFailException( s:String = "" )
-		Local me:TFTDILibraryLoadFailException = New TFTDILibraryLoadFailException
-		_create( me, s )
-		Return me
-	End Function
+    Function Create:TFTDILibraryLoadFailException( s:String = "" )
+        Local me:TFTDILibraryLoadFailException = New TFTDILibraryLoadFailException
+        _create( me, s )
+        Return me
+    End Function
 End Type
 
 Public
 Type TFTDIException Extends IFTDIException 
 
-	Field _s:String = Null
-	
-	Method ToString:String()
-		Return _s
-	End Method
-	
-	Function Create:TFTDIException( s:String = "" )
-		Local me:TFTDIException = New TFTDIException
-		_create( me, s )
-		Return me
-	End Function
-	
-	Function _create( me:TFTDIException, s:String )
-		Assert me
-		me._s = TTypeId.ForObject( me ).Name() + " : " + s
-	End Function
-	
+    Field _s:String = Null
+    
+    Method ToString:String()
+        Return _s
+    End Method
+    
+    Function Create:TFTDIException( s:String = "" )
+        Local me:TFTDIException = New TFTDIException
+        _create( me, s )
+        Return me
+    End Function
+    
+    Function _create( me:TFTDIException, s:String )
+        Assert me
+        me._s = TTypeId.ForObject( me ).Name() + " : " + s
+    End Function
+    
 End Type

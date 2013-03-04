@@ -34,22 +34,22 @@ Import "IFTDIDeviceNode.bmx"
 Public
 Type IFTDIDevice Abstract
 
-	Method Open() Abstract
-	Method IsOpen:Int() Abstract
-	Method Close() Abstract
-	
-	Method SetBaudRate( bps:Int ) Abstract
-	Method SetDataCharacteristics( bits:Int, parity:Byte, stop_bits:Byte ) Abstract
-	Method SetLatencyTimer( millisec:Byte ) Abstract
-	Method SetFlowControl( flow:Short, xon:Byte=$11 , xoff:Byte=$13 ) Abstract
-	Method SetTimeouts( read_to_millisec:Int, write_to_millisec:Int ) Abstract
-	Method Reset() Abstract
-	Method Write:Int( ba:Byte[] ) Abstract
-	Method Read:Byte[]( cnt:Int ) Abstract
-	
-	Method SerialNumber:String() Abstract
-	Method Description:String() Abstract
-	
-	Function Create:IFTDIDevice( node:IFTDIDeviceNode, open:Int = True ) Abstract
-	
+    Method Open() Abstract
+    Method IsOpen:Int() Abstract
+    Method Close() Abstract
+    
+    Method SetBaudRate( bps:Int ) Abstract
+    Method SetDataCharacteristics( bits:Int, parity:Byte, stop_bits:Byte ) Abstract
+    Method SetLatencyTimer( millisec:Byte ) Abstract
+    Method SetFlowControl( flow:Short, xon:Byte=$11 , xoff:Byte=$13 ) Abstract
+    Method SetTimeouts( read_to_millisec:Int, write_to_millisec:Int ) Abstract
+    Method Reset() Abstract
+    Method Write:Int( ba:Byte[] ) Abstract
+    Method Read:Byte[]( cnt:Int ) Abstract
+    
+    Method SerialNumber:String() Abstract
+    Method Description:String() Abstract
+    
+    Function Create:IFTDIDevice( node:IFTDIDeviceNode, open:Int = True ) Abstract
+    
 End Type

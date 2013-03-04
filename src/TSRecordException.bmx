@@ -32,15 +32,15 @@ SuperStrict
 
 Type TSRecordException
 
-	Field _s:String = Null
-	Function Create:TSRecordException( s:String = "TSRecordException" )
-		Local me:TSRecordException = New TSRecordException
-		me._s = s
-		Return me
-	End Function
-	
-	Method ToString:String()
-		Return _s
-	End Method
-	
+    Field _s:String = Null
+    Function Create:TSRecordException( s:String = "TSRecordException" )
+        Local me:TSRecordException = New TSRecordException
+        me._s = s
+        Return me
+    End Function
+    
+    Method ToString:String()
+        Return _s
+    End Method
+    
 End Type

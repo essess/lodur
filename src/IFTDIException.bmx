@@ -31,5 +31,5 @@
 SuperStrict
 Public
 Type IFTDIException Abstract
-	Function Create:IFTDIException( s:String ) Abstract
+    Function Create:IFTDIException( s:String ) Abstract
 End Type
