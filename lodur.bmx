@@ -230,5 +230,8 @@ Function CreateImageFromSRecordStream:TImage( stream:TStream )
         Next
     Next
 
+	' reset image index for caller
+	img.SetAddress( img.Base() )
+
     Return img
 End Function
